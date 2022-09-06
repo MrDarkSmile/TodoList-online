@@ -1,1 +1,50 @@
 
+<html>
+<head>
+  <title>Todo list</title>
+  <style type="text/css" media="all">
+    .box{
+      background-color: #ebebeb;
+      width: 400;
+    }
+  </style>
+</head>
+
+
+<body>
+  <center>
+    
+  <h2>Developer : MrDarkSmile</h2>
+  <br /><br />
+  
+  <form action="add" method="post" accept-charset="utf-8">
+    <input type="text" name="work"  value="" />
+    <input type="submit" name="btn" value="send" />
+  </form>
+  
+  <br /><br />
+  
+  {% if show_works == True %}
+  {% for work in works %}
+  
+  <div class="box">
+    {{work}}
+    <a href="{{ url_for('delete',work=work)}}">
+      <button>delete</button>
+    </a>
+  </div>
+  
+  <br />
+  
+  {% endfor %}
+  {% endif %}
+  
+  <br />
+  
+  <pre>100% security here, because your
+  information is displayed only to your IP and 
+  others do not have access in any way</pre>
+  
+  </center>
+</body>
+</html>
